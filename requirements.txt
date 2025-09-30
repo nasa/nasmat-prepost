@@ -1,0 +1,7 @@
+vtk
+pyqt5
+h5py
+matplotlib
+tqdm
+pyperclip
+opencv-python

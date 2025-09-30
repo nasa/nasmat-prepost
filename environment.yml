@@ -1,0 +1,15 @@
+name: nasmat-prepost
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - vtk
+  - pyqt
+  - h5py
+  - matplotlib
+  - tqdm
+  - pyperclip
+  - pip
+  - pip:
+      - opencv-python
+

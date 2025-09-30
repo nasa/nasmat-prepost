@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use NASMAT PrePost in your research, please cite it as below."
+title: "NASMAT PrePost: A Tool for Visualizing and Interrogating Multiscale Model Results"
+version: 1.0.0
+date-released: 2025-09-30
+
+authors:
+  - family-names: Ricks
+    given-names: Trenton M.
+  - family-names: Bednarcyk
+    given-names: Brett A.
+  - family-names: Arnold
+    given-names: Steven M.
+  - family-names: Pineda
+    given-names: Evan J.
+
+abstract: |
+  NASMAT PrePost is an open-source Python tool to visualize NASMAT model results
+  and rapidly interrogate multiscale data across multiple length scales.
+  This citation references the presentation “A Workflow to Rapidly Interrogate
+  Multiscale Model Simulation Results Across Multiple Length Scales”  
+  (NASA Technical Reports Server, document ID 20240016540), 
+  which introduced key features of the software.
+
+repository-code: "https://github.com/nasa/nasmat-prepost"
+url: "https://ntrs.nasa.gov/citations/20240016540"
