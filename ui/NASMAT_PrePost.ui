@@ -1,0 +1,1986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main</class>
+ <widget class="QMainWindow" name="main">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2177</width>
+    <height>1050</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>NASMAT PrePost v0.0</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QWidget" name="toolbar_widget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(240, 240, 240);</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>238</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QLabel" name="mode_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Mode:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="mode_cb">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Select Plot Mode</string>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QComboBox::AdjustToContents</enum>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Materials</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>H5 Arrays</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="result_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Result:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="res_item_cb">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Result field variable</string>
+               </property>
+               <property name="whatsThis">
+                <string extracomment="Result field variable"/>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QComboBox::AdjustToContents</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="res_comp_cb">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string>Result field variable component</string>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QComboBox::AdjustToContents</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="res_mode_cb">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="sizeAdjustPolicy">
+                <enum>QComboBox::AdjustToContents</enum>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Aligned with Unit Cell</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Aligned with Material</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>79</width>
+               <height>24</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="QPushButton" name="firstinc_pb">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="toolTip">
+                  <string>Go to initial timestep</string>
+                 </property>
+                 <property name="text">
+                  <string>|&lt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="previnc_pb">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="toolTip">
+                  <string>Go to previous timestep</string>
+                 </property>
+                 <property name="text">
+                  <string>&lt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="stop_pb">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>□</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="nextinc_pb">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="toolTip">
+                  <string>Go to next timestep</string>
+                 </property>
+                 <property name="text">
+                  <string>&gt;</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="lastinc_pb">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="toolTip">
+                  <string>Go to final timestep</string>
+                 </property>
+                 <property name="text">
+                  <string>&gt;|</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <item>
+                <widget class="QCheckBox" name="auto_chk">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::RightToLeft</enum>
+                 </property>
+                 <property name="text">
+                  <string>AutoPlay</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="speed_label">
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Speed:</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSlider" name="speed_slider">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QLabel" name="inc_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>INC:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="inc_text">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="time_label">
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Time:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="time_text">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>200</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="lineWidth">
+                <number>100</number>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>238</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="vtk_widget" name="vtk_widget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="displayed_txt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="maximumBlockCount">
+           <number>1000</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTabWidget" name="tabWidget">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Expanding">
+          <horstretch>5</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>500</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>Select RUC Geometry or Results</string>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="RUC_tab">
+         <property name="toolTip">
+          <string>Select RUC Geometry</string>
+         </property>
+         <attribute name="title">
+          <string>RUC</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QTreeWidget" name="treeWidget">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOn</enum>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::AdjustToContents</enum>
+            </property>
+            <property name="columnCount">
+             <number>2</number>
+            </property>
+            <column>
+             <property name="text">
+              <string notr="true">Model Hierarchy</string>
+             </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>RUCID</string>
+             </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="Results_tab">
+         <property name="toolTip">
+          <string>Select RUC Results</string>
+         </property>
+         <attribute name="title">
+          <string>Results</string>
+         </attribute>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QTreeWidget" name="treeWidget_Res">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOn</enum>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::AdjustToContents</enum>
+            </property>
+            <property name="columnCount">
+             <number>1</number>
+            </property>
+            <attribute name="headerCascadingSectionResizes">
+             <bool>true</bool>
+            </attribute>
+            <attribute name="headerStretchLastSection">
+             <bool>false</bool>
+            </attribute>
+            <column>
+             <property name="text">
+              <string notr="true">Model Hierarchy</string>
+             </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+            </column>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>2177</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="statusTip">
+     <string>Primary menu for performing file operations...</string>
+    </property>
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuNew_NASMAT_Deck">
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>New NASMAT Deck...</string>
+     </property>
+     <addaction name="actionNewBlank"/>
+     <addaction name="actionNewWith_Defaults"/>
+    </widget>
+    <addaction name="separator"/>
+    <addaction name="menuNew_NASMAT_Deck"/>
+    <addaction name="actionOpen_NASMAT_Deck"/>
+    <addaction name="actionOpen_NASMAT_H5_File"/>
+    <addaction name="actionSave_NASMAT_Deck"/>
+    <addaction name="actionSave_NASMAT_Deck_As"/>
+    <addaction name="actionSave_Screenshot"/>
+    <addaction name="actionSave_Video"/>
+    <addaction name="actionClose_NASMAT_PrePost"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="statusTip">
+     <string>Primary menu for editing NASMAT input files...</string>
+    </property>
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menuEdit_NASMAT_Deck">
+     <property name="title">
+      <string>Edit NASMAT Deck...</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="separator"/>
+     <addaction name="actionEdit_UI"/>
+     <addaction name="actionEdit_text"/>
+    </widget>
+    <addaction name="menuEdit_NASMAT_Deck"/>
+   </widget>
+   <widget class="QMenu" name="menuSolver">
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="statusTip">
+     <string notr="true">Primary menu for defining NASMAT settings and running NASMAT...</string>
+    </property>
+    <property name="title">
+     <string>Solver</string>
+    </property>
+    <addaction name="actionSelect_NASMAT_Solver"/>
+    <addaction name="actionRun_NASMAT"/>
+    <addaction name="actionSet_NASMAT_Shared_Library_Path"/>
+    <addaction name="actionSet_Intel_Path"/>
+    <addaction name="actionSet_Intel_compile_options"/>
+    <addaction name="actionSet_HDF5_bin_Path"/>
+   </widget>
+   <widget class="QMenu" name="menuResults">
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="statusTip">
+     <string>Primary menu for adding/displaying NASMAT results...</string>
+    </property>
+    <property name="title">
+     <string>Results</string>
+    </property>
+    <addaction name="actionAttach_h5_file"/>
+    <addaction name="actionView_data_file"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionNASMAT_PrePost"/>
+    <addaction name="actionLicense"/>
+   </widget>
+   <widget class="QMenu" name="menuPlot">
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Plot</string>
+    </property>
+    <widget class="QMenu" name="menuSync_Cameras">
+     <property name="title">
+      <string>Sync Cameras</string>
+     </property>
+     <addaction name="actionSync_3D_Cameras"/>
+     <addaction name="actionSync_3D_Cameras_by_RUC"/>
+    </widget>
+    <widget class="QMenu" name="menuShow_Hide_Orientations">
+     <property name="title">
+      <string>Show/Hide Orientations</string>
+     </property>
+     <addaction name="actionOnly_Show_1_Dir_Ori"/>
+     <addaction name="actionShow_All_Orientations"/>
+     <addaction name="actionHide_All_Orientations"/>
+    </widget>
+    <addaction name="actionChange_Plot_Range"/>
+    <addaction name="actionReset_Plot_Range"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_Hide_Title"/>
+    <addaction name="actionShow_Hide_Axes"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_Hide_Subvolume_IDs"/>
+    <addaction name="actionShow_Hide_Subvolume_Edges"/>
+    <addaction name="separator"/>
+    <addaction name="actionShowHide_Materials"/>
+    <addaction name="actionShowHide_Material_IDs"/>
+    <addaction name="separator"/>
+    <addaction name="menuShow_Hide_Orientations"/>
+    <addaction name="actionSet_Ori_Arrow_Scale"/>
+    <addaction name="actionSet_Plot_Opacity"/>
+    <addaction name="separator"/>
+    <addaction name="menuSync_Cameras"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionColors"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuSolver"/>
+   <addaction name="menuResults"/>
+   <addaction name="menuPlot"/>
+   <addaction name="menuOptions"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777212</height>
+    </size>
+   </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <action name="actionOpen_NASMAT_Deck">
+   <property name="text">
+    <string>Open NASMAT Deck...</string>
+   </property>
+  </action>
+  <action name="actionSave_NASMAT_Deck">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save NASMAT Deck...</string>
+   </property>
+  </action>
+  <action name="actionSave_NASMAT_Deck_As">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save NASMAT Deck As..</string>
+   </property>
+  </action>
+  <action name="actionSelect_NASMAT_Solver">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Select NASMAT Solver...</string>
+   </property>
+  </action>
+  <action name="actionRun_NASMAT">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Run NASMAT...</string>
+   </property>
+  </action>
+  <action name="actionAttach_h5_file">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Attach *.h5 file...</string>
+   </property>
+  </action>
+  <action name="actionView_data_file">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>View *.data files...</string>
+   </property>
+  </action>
+  <action name="actionClose_NASMAT_Deck_Ouptuts">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Close NASMAT Deck/Ouptuts...</string>
+   </property>
+  </action>
+  <action name="actionClose_NASMAT_PrePost">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Close NASMAT PrePost...</string>
+   </property>
+  </action>
+  <action name="actionNASMAT">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>NASMAT</string>
+   </property>
+  </action>
+  <action name="actionLicense">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>License</string>
+   </property>
+  </action>
+  <action name="actionNASMAT_PrePost">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>NASMAT PrePost</string>
+   </property>
+  </action>
+  <action name="actionPlot_Options">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Plot Options...</string>
+   </property>
+  </action>
+  <action name="actionShowHide_Materials">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show/Hide Materials...</string>
+   </property>
+  </action>
+  <action name="actionHide_Orientations">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Hide Orientations</string>
+   </property>
+  </action>
+  <action name="actionShowHide_Material_IDs">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show/Hide Material IDs</string>
+   </property>
+  </action>
+  <action name="actionHide_Material_IDs">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Hide Material IDs</string>
+   </property>
+  </action>
+  <action name="actionNewBlank">
+   <property name="text">
+    <string>Blank</string>
+   </property>
+  </action>
+  <action name="actionNewWith_Defaults">
+   <property name="text">
+    <string>With Defaults</string>
+   </property>
+  </action>
+  <action name="actionOpen_NASMAT_H5_File">
+   <property name="text">
+    <string>Open NASMAT H5 File...</string>
+   </property>
+  </action>
+  <action name="actionColors">
+   <property name="text">
+    <string>Colors</string>
+   </property>
+  </action>
+  <action name="actionEdit_UI">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Edit with user interface</string>
+   </property>
+  </action>
+  <action name="actionEdit_text">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Edit raw text</string>
+   </property>
+  </action>
+  <action name="actionShow_Hide_Subvolume_Edges">
+   <property name="text">
+    <string>Show/Hide Subvolume Edges</string>
+   </property>
+  </action>
+  <action name="actionChange_Plot_Range">
+   <property name="text">
+    <string>Change Plot Range</string>
+   </property>
+  </action>
+  <action name="actionReset_Plot_Range">
+   <property name="text">
+    <string>Reset Plot Range</string>
+   </property>
+  </action>
+  <action name="actionSave_Screenshot">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save Screenshot...</string>
+   </property>
+  </action>
+  <action name="actionShow_Hide_Subvolume_IDs">
+   <property name="text">
+    <string>Show/Hide Subvolume IDs</string>
+   </property>
+  </action>
+  <action name="actionSet_Intel_Path">
+   <property name="text">
+    <string>Set Intel setvars...</string>
+   </property>
+  </action>
+  <action name="actionSet_Intel_compile_options">
+   <property name="text">
+    <string>Set Intel compile Options...</string>
+   </property>
+  </action>
+  <action name="actionSet_HDF5_bin_Path">
+   <property name="text">
+    <string>Set HDF5 bin Path</string>
+   </property>
+  </action>
+  <action name="actionSet_NASMAT_Shared_Library_Path">
+   <property name="text">
+    <string>Set NASMAT Shared Library Path...</string>
+   </property>
+  </action>
+  <action name="actionShow_Hide_Axes">
+   <property name="text">
+    <string>Show/Hide Axes</string>
+   </property>
+  </action>
+  <action name="actionShow_Hide_Title">
+   <property name="text">
+    <string>Show/Hide Title</string>
+   </property>
+  </action>
+  <action name="actionSync_3D_Cameras">
+   <property name="text">
+    <string>Sync All 3D Cameras</string>
+   </property>
+  </action>
+  <action name="actionSync_3D_Cameras_by_RUC">
+   <property name="text">
+    <string>Sync 3D Cameras by RUC</string>
+   </property>
+  </action>
+  <action name="actionSave_Video">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save Video...</string>
+   </property>
+  </action>
+  <action name="actionOnly_Show_1_Dir_Ori">
+   <property name="text">
+    <string>Only Show 1-Direction Orientation</string>
+   </property>
+  </action>
+  <action name="actionSet_Ori_Arrow_Scale">
+   <property name="text">
+    <string>Set Orientation Arrow Scale Factor</string>
+   </property>
+  </action>
+  <action name="actionShow_All_Orientations">
+   <property name="text">
+    <string>Show All Orientations</string>
+   </property>
+  </action>
+  <action name="actionHide_All_Orientations">
+   <property name="text">
+    <string>Hide All Orientations</string>
+   </property>
+  </action>
+  <action name="actionSet_Plot_Opacity">
+   <property name="text">
+    <string>Set Plot Opacity</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>vtk_widget</class>
+   <extends>QWidget</extends>
+   <header>vtk_widget</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionOpen_NASMAT_Deck</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>open_mac_file()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShowHide_Materials</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>displayed_materials()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>839</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAttach_h5_file</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>attach_h5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>839</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>main</receiver>
+   <slot>plot_ruc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1665</x>
+     <y>516</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mode_cb</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>main</receiver>
+   <slot>select_h5_results()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>318</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>res_item_cb</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>main</receiver>
+   <slot>set_h5_item()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>res_comp_cb</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>main</receiver>
+   <slot>set_h5_comp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>507</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>firstinc_pb</sender>
+   <signal>released()</signal>
+   <receiver>main</receiver>
+   <slot>plot_h5_goto_firstinc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>656</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lastinc_pb</sender>
+   <signal>released()</signal>
+   <receiver>main</receiver>
+   <slot>plot_h5_goto_lastinc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>914</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nextinc_pb</sender>
+   <signal>released()</signal>
+   <receiver>main</receiver>
+   <slot>plot_h5_goto_nextinc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>828</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>previnc_pb</sender>
+   <signal>released()</signal>
+   <receiver>main</receiver>
+   <slot>plot_h5_goto_previnc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>742</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>treeWidget_Res</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>main</receiver>
+   <slot>update_h5_plot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1667</x>
+     <y>530</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabWidget</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>main</receiver>
+   <slot>change_ruc_tab()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1665</x>
+     <y>520</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNewBlank</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>new_mac_file()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNewWith_Defaults</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>new_mac_file_w_def()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOpen_NASMAT_H5_File</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>open_h5_file()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSelect_NASMAT_Solver</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>select_solver()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionRun_NASMAT</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>run_nasmat()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionColors</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>set_colors()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEdit_text</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>edit_mac_text()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShowHide_Material_IDs</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>show_hide_mat_ids()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_Hide_Subvolume_Edges</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>show_hide_subvol_edges()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionChange_Plot_Range</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>plot_change_range()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionReset_Plot_Range</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>plot_reset_range()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave_Screenshot</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>save_screenshot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>res_mode_cb</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>main</receiver>
+   <slot>set_h5_mode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>687</x>
+     <y>65</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_Hide_Subvolume_IDs</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>show_hide_subvol_ids()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionEdit_UI</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>edit_mac_ui()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave_NASMAT_Deck</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>save()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave_NASMAT_Deck_As</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>save_as()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSet_HDF5_bin_Path</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>set_h5_path()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSet_Intel_Path</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>set_intel_path()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSet_Intel_compile_options</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>set_intel_opts()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSet_NASMAT_Shared_Library_Path</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>set_nasmat_shared_path()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionView_data_file</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>view_data_files()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionNASMAT_PrePost</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>show_about_npp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionLicense</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>show_about_lic()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionClose_NASMAT_PrePost</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>speed_slider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>main</receiver>
+   <slot>plot_h5_update_speed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>895</x>
+     <y>103</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stop_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>main</receiver>
+   <slot>plot_h5_stop_inc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>938</x>
+     <y>71</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_Hide_Axes</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>show_hide_axes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>953</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_Hide_Title</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>show_hide_title()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>953</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>inc_text</sender>
+   <signal>editingFinished()</signal>
+   <receiver>main</receiver>
+   <slot>plot_h5_set_inc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1338</x>
+     <y>103</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSync_3D_Cameras</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>sync_3d_cameras()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSync_3D_Cameras_by_RUC</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>sync_3d_cameras_by_ruc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSave_Video</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>save_video()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSet_Ori_Arrow_Scale</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>set_ori_scale_factor()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOnly_Show_1_Dir_Ori</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>show_1dir_ori()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShow_All_Orientations</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>show_all_ori()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionHide_All_Orientations</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>hide_all_ori()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>752</x>
+     <y>402</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSet_Plot_Opacity</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>set_opacity()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>open_mac_file()</slot>
+  <slot>displayed_materials()</slot>
+  <slot>attach_h5()</slot>
+  <slot>update_vtk()</slot>
+  <slot>select_h5_results()</slot>
+  <slot>plot_h5_results()</slot>
+  <slot>plot_h5_goto_firstinc()</slot>
+  <slot>plot_h5_goto_previnc()</slot>
+  <slot>plot_h5_goto_nextinc()</slot>
+  <slot>plot_h5_goto_lastinc()</slot>
+  <slot>set_h5_comp()</slot>
+  <slot>set_h5_item()</slot>
+  <slot>plot_h5_set_inc()</slot>
+  <slot>change_ruc_tab()</slot>
+  <slot>plot_ruc()</slot>
+  <slot>update_h5_plot()</slot>
+  <slot>new_mac_file()</slot>
+  <slot>new_mac_file_w_def()</slot>
+  <slot>open_h5_file()</slot>
+  <slot>select_solver()</slot>
+  <slot>run_nasmat()</slot>
+  <slot>set_colors()</slot>
+  <slot>edit_mac_text()</slot>
+  <slot>show_hide_mat_ids()</slot>
+  <slot>show_hide_oris()</slot>
+  <slot>show_hide_subvol_edges()</slot>
+  <slot>plot_change_range()</slot>
+  <slot>plot_reset_range()</slot>
+  <slot>save_screenshot()</slot>
+  <slot>set_h5_mode()</slot>
+  <slot>show_hide_subvol_ids()</slot>
+  <slot>edit_mac_ui()</slot>
+  <slot>save()</slot>
+  <slot>save_as()</slot>
+  <slot>set_nasmat_shared_path()</slot>
+  <slot>set_intel_path()</slot>
+  <slot>set_intel_opts()</slot>
+  <slot>set_h5_path()</slot>
+  <slot>view_data_files()</slot>
+  <slot>show_about_npp()</slot>
+  <slot>show_about_lic()</slot>
+  <slot>plot_h5_update_speed()</slot>
+  <slot>plot_h5_stop_inc()</slot>
+  <slot>show_hide_title()</slot>
+  <slot>show_hide_axes()</slot>
+  <slot>sync_3d_cameras()</slot>
+  <slot>sync_3d_cameras_by_ruc()</slot>
+  <slot>save_video()</slot>
+  <slot>show_1dir_ori()</slot>
+  <slot>set_ori_scale_factor()</slot>
+  <slot>show_all_ori()</slot>
+  <slot>hide_all_ori()</slot>
+  <slot>set_opacity()</slot>
+ </slots>
+</ui>

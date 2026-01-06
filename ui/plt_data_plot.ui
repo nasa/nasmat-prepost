@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>845</width>
+    <height>540</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>NASMAT Data Plot...</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_5">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>108</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="add_pb">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>+</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="rm_pb">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>-</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QListWidget" name="avail_data">
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QPushButton" name="addplot_pb">
+           <property name="text">
+            <string>Add to Plot...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="rmplot_pb">
+           <property name="text">
+            <string>Remove from Plot...</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="pltopts_gb">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="title">
+          <string>Plot Options</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <item>
+             <widget class="QPushButton" name="flipX_pb">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Flip X Axis</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="flipY_pb">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Flip Y Axis</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <item>
+                 <widget class="QLabel" name="x_label">
+                  <property name="text">
+                   <string>X Label:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="x_lineEdit">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_8">
+                <item>
+                 <widget class="QLabel" name="y_label">
+                  <property name="text">
+                   <string>Y Label:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="y_lineEdit">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QLabel" name="title_label">
+                  <property name="text">
+                   <string>Plot Title:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="title_lineEdit">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QLabel" name="color_label">
+                  <property name="text">
+                   <string>Color:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="color_cb">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>black</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>blue</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>orange</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>green</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>red</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>purple</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>brown</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>pink</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>gray</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QLabel" name="marker_label">
+                  <property name="text">
+                   <string>Marker:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="marker_cb">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>None</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>o</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>s</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>^</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>v</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>D</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>+</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>x</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>*</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QLabel" name="linestyle_label">
+                  <property name="text">
+                   <string>Line Style:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="linestyle_cb">
+                  <property name="font">
+                   <font>
+                    <weight>50</weight>
+                    <bold>false</bold>
+                   </font>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>-</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>--</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>-.</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>:</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>None</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_12">
+            <item>
+             <widget class="QLabel" name="legend_label">
+              <property name="text">
+               <string>Legend:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="legend_lineEdit">
+              <property name="font">
+               <font>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="PltWidget" name="PltWidget" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>500</width>
+         <height>200</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PltWidget</class>
+   <extends>QWidget</extends>
+   <header>plt_widget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>add_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>add_data_from_file()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>186</x>
+     <y>25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rm_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>rm_data()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>267</x>
+     <y>25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addplot_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>add_to_plot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>84</x>
+     <y>246</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rmplot_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>rm_from_plot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>246</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>title_lineEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>Dialog</receiver>
+   <slot>change_title()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>112</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>x_lineEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>Dialog</receiver>
+   <slot>change_xlabel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>y_lineEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>Dialog</receiver>
+   <slot>change_ylabel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>107</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>color_cb</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>Dialog</receiver>
+   <slot>change_plot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>marker_cb</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>Dialog</receiver>
+   <slot>change_plot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>linestyle_cb</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>Dialog</receiver>
+   <slot>change_plot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>356</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>avail_data</sender>
+   <signal>itemSelectionChanged()</signal>
+   <receiver>Dialog</receiver>
+   <slot>set_plotopts()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>135</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>legend_lineEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>Dialog</receiver>
+   <slot>change_plot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>183</x>
+     <y>358</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>flipX_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>flip_x()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>422</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>flipY_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>flip_y()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>242</x>
+     <y>328</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>422</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>add_data_from_file()</slot>
+  <slot>rm_data()</slot>
+  <slot>add_to_plot()</slot>
+  <slot>rm_from_plot()</slot>
+  <slot>change_title()</slot>
+  <slot>change_xlabel()</slot>
+  <slot>change_ylabel()</slot>
+  <slot>change_plot()</slot>
+  <slot>set_plotopts()</slot>
+  <slot>flip_x()</slot>
+  <slot>flip_y()</slot>
+ </slots>
+</ui>

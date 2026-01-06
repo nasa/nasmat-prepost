@@ -37,7 +37,7 @@ From a command line, create and activate a new python environment for NASMAT Pre
 
 ```bash
 python -m venv <env_path>/nasmat-prepost
-<env_path>/Scripts/activate
+<env_path>/nasmat-prepost/Scripts/activate
 ```
 
 where <env_path> is the directory where the new environment should be created (not the root directory for the project).
@@ -52,7 +52,7 @@ pip install -r requirements.txt
 
 ### Loading the user interface
 
-The user interface for NASMAT PrePost can be loaded by running [main.py](./main.py).
+The user interface for NASMAT PrePost can be loaded by running [main.py](./main.py). Be sure that the correct python environment is active.
 
 ### Setting NASMAT PrePost environment variables
 
@@ -64,15 +64,17 @@ When first executed, NASMAT PrePost creates an environment file in the root dire
     3. INTEL_PATH: Intel setvars file
     4. INTEL_OPTS: options to pass Intel setvars file
     5. HDF5_PATH: directory containing hdf5 shared libraries
-    6. CLEAR_CMD: open to exectute NASMAT from a clean OS environment (TRUE or FALSE)
+    6. CLEAR_CMD: option to exectute NASMAT from a clean OS environment (TRUE or FALSE)
     7. COLORMAP: integer value to change the default colormap in the UI (not integrated yet)
     8. BACKGROUND_COLOR: three comma-seprated floats to define the RGB values of the UI background
+    9. SHOW_AXES: option to hide or show axes by default (TRUE or FALSE)
+   10. SHOW_TITLE: option to hide or show RUC title text by default (TRUE or FALSE)
 
 - The first 5 environment variables must be set in order to run NASMAT from within the UI. Those can be set manually in the environment file or automatically by selecting appropriate options under the UI solver menu.
 
 ### Common use cases
 
-- Create a new NASMAT input deck [not recommended currently due to limitations]
+- Create a new NASMAT input deck
     1. File → New NASMAT Deck... → Blank
     2. Populate fields in each tab as desired
     3. Click Ok
@@ -82,6 +84,10 @@ When first executed, NASMAT PrePost creates an environment file in the root dire
 
 - Open existing NASMAT results (*.h5)
     1. File → Open NASMAT H5 File...
+
+- Open both NASMAT Deck and NASMAT results (*.h5) file
+    1. File → Open NASMAT Deck...
+    2. Results → Attach *.h5 file...
 
 - Switching between unit cells and results
     1. On the far right of the user interface, select either the RUC or Results tab. The RUC tab will show the RUCs as represented in the input deck while the Results tab will show all RUCs in the model including those with the same geometry.
@@ -105,6 +111,20 @@ When first executed, NASMAT PrePost creates an environment file in the root dire
     3. Showing material ids. Displace each subvolume's material id (may be slow for larger models).
     4. Showing material orientations. Plots the local material orientation for each subvolume.
 
+- Creating a video from results
+    1. Open existing NASMAT results (*.h5)
+    2. Select an RUC of interest.
+    3. Update the plot range if desired.
+    4. File → Save Video...
+    5. Enter a FPS value.
+    6. Enter the video filename and click Ok.
+
+### Keyboard Shortcuts
+
+- Press '1': resets camera to default view
+- Press and hold 'Alt': enables clipping mode to slice through unit cells. While holding, click and drag one of the spherical handles to slice.
+- Press 'r': resets clipper. Note: might not refresh grid when pressed. Press 'Alt' and slightly move one of the handles slightly to fix.
+
 ### Known limitations of the user interface
 
 - In general, more features can be found in the standalone codes than are fully integrated into the UI.
@@ -112,10 +132,24 @@ When first executed, NASMAT PrePost creates an environment file in the root dire
 - Lack of robust error checking with reading NASMAT inputs. It is best to verify that an input deck successfully runs on NASMAT before opening it on NASMAT PrePost.
 - Some NASMAT input files that work with NASMAT may give errors when read in NASMAT PrePost due to differences in input file pre-processing.
 - Some hard-coding may prevent code from running on Linux or MAC operating systems. All testing to date has been on Windows.
+- When using with MacroAPI results, variable names may not match ones used in the NASMAT H5 file. Ensure appropriate variable mapping is defined in the var_map dict inside the [vtk_widget](./vtk_widget.py) init definition.
+- When using RUCs in the [new_Dialog UI](./new_Dialog.py), ensure all MSM values are unique. Available RUCs can have duplicate MSM values.
+- Subvolume rotations defined in a *.rot file are not available for defining or editing in the UI.
+- Due to development priorities, the 2D weave generation capability has not been fully validated.'
+- When trying to run [NASMAT](./NASMAT/NASMAT.py) with multiple job inputs, the execution may get hung up. If this happens, run jobs sequentially (see [Example 3](./standalone_examples/example-3.py) for how to set up)
 
 ### Editing the user interface
 
 - [*.ui files](./ui) are provided in the distribution and can be edited in either QT Designer or QT Creator. That is preferable to modifying Python code directly.
+- For example, if you have a nasmat-prepost conda environment:
+    1. Open an Anaconda Prompt.
+
+    2. Type the following commands:
+
+        ```bash
+        conda activate nasmat-prepost
+        designer
+        ```
 
 ## Features implemented in standalone Python code, but not in user interface
 
@@ -123,6 +157,12 @@ When first executed, NASMAT PrePost creates an environment file in the root dire
 - [Utility function](./util/stackify.py) to create a NASMAT "stack" model (i.e., converting a single 3D unit cell to two unit cells).
 - [Plotting NASMAT "stack" models](./vtk_plot/vtk_plot_stacks.py).
 - Adding Abaqus-specific mesh/output data to the NASMAT h5 file. Must be done manually. See [Modifying NASMAT h5 files to add MACROAPI data](#modifying-nasmat-h5-files-to-add-macroapi-data).
+- [Parameter and expression substitution](./util/sub_param.py) (e.g., for sensitivity studies).
+- [Basic *.out file parser](./util/output_parser.py) for automatically getting simple NASMAT outputs.
+- These capabilities (with the exception of Abaqus data plotting) are demonstrated in [Standalone Examples](./standalone_examples/):
+  - [Example 1](./standalone_examples/example-1.py): reading an existing MAC file, running, plotting results.
+  - [Example 2](./standalone_examples/example-2.py): importing a grid (VTU file) of a plain weave RUC, converting to NASMAT format, manually creating a multiscale model, running, and plotting various quantities. Optional logic to convert the weave RUC to stacks.
+  - [Example 3](./standalone_examples/example-3.py): utilizing parameterized NASMAT input decks to define and vary quantities of interest.
 
 ## Modifying NASMAT h5 files to add MACROAPI data
 
@@ -137,7 +177,7 @@ By default, when running NASMAT with a MACROAPI (i.e., hookups only provided for
 
 ## Submitting bugs or feature requests
 
-Users are encouraged to create an Issue from the [NASMAT PrePost](https://github.com/nasa/nasmat-prepost) proejct page. When submitting a bug request, attach any input files if relevant. Feature requests are welcome, but implementation will depend on current NASA project demands and personell availability.
+Users are encouraged to create an Issue from the [NASMAT PrePost](https://github.com/nasa/nasmat-prepost) project page. When submitting a bug request, attach any input files if relevant. Feature requests are welcome, but implementation will depend on current NASA project demands and personell availability.
 
 ## Reference
 

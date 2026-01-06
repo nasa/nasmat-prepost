@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>woven2d_dialog</class>
+ <widget class="QDialog" name="woven2d_dialog">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1511</width>
+    <height>723</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Define 2D woven architecture...</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_10">
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="title">
+        <string>Options</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_14">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Select 2D Woven Architecture:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="woven2d_cb">
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>Select 2D woven architecture</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>Plain</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Satin</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Twill</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Basket</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>User-Defined</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="woven2dsub_cb">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>Select 2D weave variant</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>Warp Tow Material: </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="woven_warp_mat">
+                <property name="font">
+                 <font>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>Select warp tow material</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_15">
+              <item>
+               <widget class="QLabel" name="label_10">
+                <property name="text">
+                 <string>Weft Tow Material:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="woven_weft_mat">
+                <property name="font">
+                 <font>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>Select weft tow material</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>Matrix Material:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="woven_Mmat">
+                <property name="font">
+                 <font>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>Select matrix material</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>1</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>2</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Tow Width:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="woven_tow_width">
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>Define tow width</string>
+              </property>
+              <property name="text">
+               <string>0.8</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string>Tow Spacing:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="woven_tow_spacing">
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>Define tow spacing</string>
+              </property>
+              <property name="text">
+               <string>0.2</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Number of Plies:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="woven_nplies">
+                <property name="font">
+                 <font>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>Define number of plies (repeats in thickness direction)</string>
+                </property>
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>Ply Thickness:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="woven_plythk">
+                <property name="font">
+                 <font>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="toolTip">
+                 <string>Define ply thickness</string>
+                </property>
+                <property name="text">
+                 <string>0.2</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>Number of Warp Tows:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="nwarp_tows">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>Number of warp tows for user-defined weave</string>
+              </property>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>Number of Weft Tows:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="nweft_tows">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>Number of weft tows for user-defined weave</string>
+              </property>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_16">
+            <item>
+             <widget class="QLabel" name="lev0mod_label">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Level 0 MOD:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="lev0mod_cb">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>Select MOD for highest-level RUC</string>
+              </property>
+              <property name="currentIndex">
+               <number>1</number>
+              </property>
+              <item>
+               <property name="text">
+                <string>103 - GMC3D</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>202 - HFGMC2D</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="stacks_cb">
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>Select to convert single-scale RUC to stacks</string>
+              </property>
+              <property name="text">
+               <string>Create Stacks?</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="stackmod_label">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Stack MOD:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="stackmod_cb">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="font">
+               <font>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string>Select MOD for individual stacks</string>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <item>
+               <property name="text">
+                <string>103 - GMC3D</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="title">
+             <string>Tiling</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="0" column="0">
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_11">
+                 <item>
+                  <widget class="QLabel" name="warp_rep_label">
+                   <property name="text">
+                    <string>Warp:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="warp_repeats">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="toolTip">
+                    <string>Number of RUC repeats in the warp-direction</string>
+                   </property>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_12">
+                 <item>
+                  <widget class="QLabel" name="weft_rep_label">
+                   <property name="text">
+                    <string>Weft:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="weft_repeats">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="toolTip">
+                    <string>Number of RUC repeats in the weft-direction</string>
+                   </property>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_13"/>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="0">
+              <spacer name="verticalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="woven2d_RevWeave_pb">
+            <property name="toolTip">
+             <string>Reverse weave pattern</string>
+            </property>
+            <property name="text">
+             <string>Reverse Weave</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="vtk_widget" name="vtk_widget" native="true">
+       <property name="toolTip">
+        <string>Click on domains to adjust pattern</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_36">
+     <item>
+      <spacer name="horizontalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>388</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="OkCancelBox">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>vtk_widget</class>
+   <extends>QWidget</extends>
+   <header>vtk_widget</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>OkCancelBox</sender>
+   <signal>rejected()</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>cancel_2dwoven_ruc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OkCancelBox</sender>
+   <signal>accepted()</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>save_2dwoven_ruc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>861</x>
+     <y>558</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>576</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>woven2d_cb</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>set_2dwoven_sub()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>576</x>
+     <y>289</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>woven_tow_width</sender>
+   <signal>editingFinished()</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>set_2dwoven_geom()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>woven_tow_spacing</sender>
+   <signal>editingFinished()</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>set_2dwoven_geom()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>839</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>woven_plythk</sender>
+   <signal>editingFinished()</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>set_2dwoven_geom()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1161</x>
+     <y>229</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>woven2d_RevWeave_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>reverse_weave()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>746</x>
+     <y>329</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>woven2dsub_cb</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>get_2dwoven_subcb()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1241</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nwarp_tows</sender>
+   <signal>editingFinished()</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>update_user_weave()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>290</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nweft_tows</sender>
+   <signal>editingFinished()</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>update_user_weave()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1185</x>
+     <y>290</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>warp_repeats</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>tile_ruc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>229</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>weft_repeats</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>tile_ruc()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stacks_cb</sender>
+   <signal>clicked()</signal>
+   <receiver>woven2d_dialog</receiver>
+   <slot>stack_chk()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>73</x>
+     <y>202</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>755</x>
+     <y>361</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>save_2dwoven_ruc()</slot>
+  <slot>set_2dwoven_sub()</slot>
+  <slot>reverse_weave()</slot>
+  <slot>set_2dwoven_geom()</slot>
+  <slot>get_2dwoven_subcb()</slot>
+  <slot>update_user_weave()</slot>
+  <slot>cancel_2dwoven_ruc()</slot>
+  <slot>tile_ruc()</slot>
+  <slot>stack_chk()</slot>
+ </slots>
+</ui>

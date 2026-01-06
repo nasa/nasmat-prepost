@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>user_ruc_dialog</class>
+ <widget class="QDialog" name="user_ruc_dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1283</width>
+    <height>1050</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Define inputs for user RUC...</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <widget class="QLabel" name="mod_label_text">
+       <property name="text">
+        <string>Selected Model (MOD): </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="mod_label">
+       <property name="text">
+        <string>model</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QLabel" name="na_label">
+         <property name="text">
+          <string>NA:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="na_edit">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="setD_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Set D to Constant</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="setH_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Set H to Constant</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="setL_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Set L to Constant</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QPushButton" name="setSM_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Set SM to Constant</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QLineEdit" name="val_edit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Input constant value</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="nb_label">
+         <property name="text">
+          <string>NB:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="nb_edit"/>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="refineD_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Refine D</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="refineH_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Refine H</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QPushButton" name="refineL_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Refine L</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLineEdit" name="refine_edit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Input constant value</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="ng_label">
+         <property name="text">
+          <string>NG:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="ng_edit"/>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="scaleD_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Scale D</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QPushButton" name="scaleH_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Scale  H</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QPushButton" name="scaleL_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Scale L</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLineEdit" name="scale_edit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Input constant value</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QPushButton" name="clearD_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Clear D</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QPushButton" name="clearH_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Clear H</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QPushButton" name="clearL_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Clear L</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QPushButton" name="clearSM_pb">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Clear SM</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="all_table_layouts" stretch="1,1,1,10,1">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <item>
+        <widget class="QLabel" name="D_label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>D:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="TableWithCopyPaste" name="D_table">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QLabel" name="H_label">
+         <property name="text">
+          <string>H:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="TableWithCopyPaste" name="H_table">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QLabel" name="L_label">
+         <property name="text">
+          <string>L:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="TableWithCopyPaste" name="L_table">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="SM_label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Material Arrangement (SM):</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="TableWithCopyPaste" name="SM_table">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QScrollBar" name="g_scrollbar">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>1</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="gscroll_label">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>GAMMA = 1</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="avail_mats_label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Available Materials:</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="avail_mats">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_13">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>368</width>
+         <height>18</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TableWithCopyPaste</class>
+   <extends>QTableWidget</extends>
+   <header>user_ruc_Dialog</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>accept_close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>na_edit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>set_NA()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>52</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>nb_edit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>set_NB()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ng_edit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>set_NG()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>setD_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setD_const()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>242</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>setH_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setH_const()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>349</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>setL_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setL_const()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>454</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>setSM_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setSM_const()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>564</x>
+     <y>53</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>g_scrollbar</sender>
+   <signal>actionTriggered(int)</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>move_gamma_scrollbar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>709</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearD_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>clearD()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearH_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>clearH()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearL_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>clearL()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>406</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearSM_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>clearSM()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>493</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>D_table</sender>
+   <signal>cellChanged(int,int)</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>chk_D_table()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>H_table</sender>
+   <signal>cellChanged(int,int)</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>chk_H_table()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>278</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>L_table</sender>
+   <signal>cellChanged(int,int)</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>chk_L_table()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>213</x>
+     <y>372</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SM_table</sender>
+   <signal>cellChanged(int,int)</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>chk_SM_table()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>420</x>
+     <y>548</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>refineD_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setD_refine()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>refineH_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setH_refine()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>82</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>refineL_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setL_refine()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>400</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleH_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setH_scale()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>314</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleD_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setD_scale()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>233</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>scaleL_pb</sender>
+   <signal>clicked()</signal>
+   <receiver>user_ruc_dialog</receiver>
+   <slot>setL_scale()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>400</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>684</x>
+     <y>678</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>tableupdated()</signal>
+  <slot>set_NA()</slot>
+  <slot>set_NB()</slot>
+  <slot>set_NG()</slot>
+  <slot>setD_const()</slot>
+  <slot>setH_const()</slot>
+  <slot>setL_const()</slot>
+  <slot>setSM_const()</slot>
+  <slot>setD_refine()</slot>
+  <slot>setH_refine()</slot>
+  <slot>setL_refine()</slot>
+  <slot>clearD()</slot>
+  <slot>clearH()</slot>
+  <slot>clearL()</slot>
+  <slot>clearSM()</slot>
+  <slot>move_gamma_scrollbar()</slot>
+  <slot>chk_D_table()</slot>
+  <slot>chk_H_table()</slot>
+  <slot>chk_L_table()</slot>
+  <slot>chk_SM_table()</slot>
+  <slot>accept_close()</slot>
+  <slot>setD_scale()</slot>
+  <slot>setH_scale()</slot>
+  <slot>setL_scale()</slot>
+  <slot>chk_N_vals()</slot>
+ </slots>
+</ui>

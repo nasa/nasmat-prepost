@@ -12,4 +12,5 @@ dependencies:
   - pip
   - pip:
       - opencv-python
+      - markdown
 

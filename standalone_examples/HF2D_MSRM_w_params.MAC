@@ -1,0 +1,38 @@
+*PRINT
+ NPL=2
+*CONSTITUENTS
+ NMATS=3
+# -- IM7
+ M=1 CMOD=6 MATID=U MATDB=1 EL=262200.0,11800.0,0.17,0.21,18900.0,-9e-07,9e-06
+# -- 8552 Epoxy
+ M=2 CMOD=6 MATID=U MATDB=1 EL={E_M=4670.0},{E_M},{v_M},{v_M},{0.5*E_M/(1+v_M)},4.2e-05,4.2e-05
+# -- Void
+ M=3 CMOD=6 MATID=U MATDB=1 EL={E_V=1.0},{E_V},{v_V},{v_V},{0.5*E_V/(1+v_V)},4.7E-6,4.7E-6
+*RUC
+ NRUCS=2
+#--IM7, porous 8552
+ MOD=202 ARCHID=13 VF={vf_F=0.55} F=1 M=-17 R=1.0
+#--Porous matrix
+ MSM=-17 mod=3 VF={vf_V=0.05} F=3 M=2
+*MECH
+ LOP=2
+ NPT=2 TI=0.0,1.0 MAG=0.0,0.02 MODE=1 
+*SOLVER
+ METHOD=1 NPT=2 TI=0.0,1.0 STP=0.01 ITMAX=10 ERR=0.001
+*FAILURE_SUBCELL
+ NMAT=2
+  MAT=1 NCRIT=1
+  CRIT=1 X11=4335.0 X22=113.0 X33=113.0 X23=128.0 X13=138.0 X12=138.0 &
+ COMPR=DIF XC11=2608.0 XC22=354.0 XC33=354.0 ACTION=1
+  MAT=2 NCRIT=1
+  CRIT=1 X11={Xn_M=59.4} X22={Xn_M} X33={Xn_M} X23={1.8855*Xn_M} X13={1.8855*Xn_M} X12={1.8855*Xn_M} COMPR=DIF &
+ XC11=259.0 XC22=259.0 XC33=259.0 ACTION=1
+*XYPLOT
+  FREQ=1
+  MACRO=1
+  NAME=HF2D_MSRM_w_params_{macro_name=1} X=2 Y=8
+  MICRO=0
+*END
+#Adding parameter defaults after END - not read by NASMAT, but read by parameter substitition code
+{v_M=0.45}
+{v_V=0.45}
