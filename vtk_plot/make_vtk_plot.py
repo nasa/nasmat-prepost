@@ -10,7 +10,7 @@ from vtkmodules.vtkRenderingLabel import vtkLabeledDataMapper # pylint: disable=
 
 from vtkmodules.vtkCommonCore import vtkLookupTable,vtkIdTypeArray,vtkIdList,vtkPoints # pylint: disable=E0611
 from vtkmodules.vtkInteractionWidgets import vtkScalarBarWidget # pylint: disable=E0611
-from vtkmodules.vtkFiltersCore import (vtkFeatureEdges,vtkIdFilter,vtkGlyph3D,# pylint: disable=E0611
+from vtkmodules.vtkFiltersCore import (vtkFeatureEdges,vtkGenerateIds,vtkGlyph3D,# pylint: disable=E0611
                                     vtkCellCenters,vtkThreshold)
 from vtkmodules.vtkCommonColor import vtkColorSeries,vtkNamedColors # pylint: disable=E0611
 from vtkmodules.vtkCommonDataModel import ( # pylint: disable=E0611
@@ -340,7 +340,7 @@ def make_vtk_plot(self,dflag,edges_to_plot=None,macroapi=False):
 
     array_names = {vis_subs.GetCellData().GetArrayName(i):i
                     for i in range(vis_subs.GetCellData().GetNumberOfArrays())}
-    ids = vtkIdFilter()
+    ids = vtkGenerateIds()
     ids.SetInputData(vis_subs)
 
     self.grid.DeepCopy(vis_subs)

@@ -52,7 +52,7 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         super().__init__()
         loadUi("ui/NASMAT_PrePost.ui", self)
 
-        self.version = 'NASMAT PrePost v1.0'
+        self.version = 'NASMAT PrePost v1.1'
         self.setWindowTitle(self.version)
 
         sys.excepthook = qt_excepthook

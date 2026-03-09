@@ -12,7 +12,7 @@ from vtkmodules.vtkCommonCore import (# pylint: disable=E0611
 from vtkmodules.vtkCommonDataModel import (# pylint: disable=E0611
     vtkRectilinearGrid,vtkUnstructuredGrid,
     vtkSelection,vtkSelectionNode)
-from vtkmodules.vtkFiltersCore import vtkIdFilter,vtkCellCenters # pylint: disable=E0611
+from vtkmodules.vtkFiltersCore import vtkGenerateIds,vtkCellCenters # pylint: disable=E0611
 from vtkmodules.vtkFiltersExtraction import vtkExtractSelection # pylint: disable=E0611
 from vtkmodules.vtkInteractionStyle import vtkInteractorStyleImage # pylint: disable=E0611
 
@@ -315,7 +315,7 @@ class Gen_VTK_Plot_2DWeave(): #pylint: disable=R0903
         array_names = {self.vis_subs.GetCellData().GetArrayName(i):i
                         for i in range(self.vis_subs.GetCellData().GetNumberOfArrays())}
 
-        ids = vtkIdFilter()
+        ids = vtkGenerateIds()
         ids.SetInputData(self.vis_subs)
         ids.CellIdsOff()
         ids.SetFieldData(1)
