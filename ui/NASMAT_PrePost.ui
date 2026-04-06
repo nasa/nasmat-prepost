@@ -691,6 +691,7 @@
     <addaction name="actionSave_NASMAT_Deck_As"/>
     <addaction name="actionSave_Screenshot"/>
     <addaction name="actionSave_Video"/>
+    <addaction name="actionClose_H5_File"/>
     <addaction name="actionClose_NASMAT_PrePost"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -1098,6 +1099,14 @@
   <action name="actionSet_Plot_Opacity">
    <property name="text">
     <string>Set Plot Opacity</string>
+   </property>
+  </action>
+  <action name="actionClose_H5_File">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Close H5 File...</string>
    </property>
   </action>
  </widget>
@@ -1902,8 +1911,8 @@
    <slot>hide_all_ori()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>752</x>
-     <y>402</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>1088</x>
@@ -1916,6 +1925,22 @@
    <signal>triggered()</signal>
    <receiver>main</receiver>
    <slot>set_opacity()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1088</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionClose_H5_File</sender>
+   <signal>triggered()</signal>
+   <receiver>main</receiver>
+   <slot>close_h5()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -1982,5 +2007,6 @@
   <slot>show_all_ori()</slot>
   <slot>hide_all_ori()</slot>
   <slot>set_opacity()</slot>
+  <slot>close_h5()</slot>
  </slots>
 </ui>
