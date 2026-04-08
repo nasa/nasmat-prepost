@@ -1514,6 +1514,8 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
             self.set_h5_flags=[True,True,True,True]
             self.update_h5_plot()
         else:
+            self.plot_h5=False
+            self.set_h5_flags=[False,False,False,False]
             self.plot_ruc(force_update=True)
 
         if selected=='H5 Arrays':
@@ -1541,7 +1543,9 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         """
 
         if self.mode_cb.currentText()!='H5 Arrays':
-            self.plot_ruc()
+            self.plot_h5=False
+            self.set_h5_flags=[False,False,False,False]
+            self.plot_ruc(force_update=True)
             return
 
         var=self.res_item_cb.currentText()
