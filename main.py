@@ -98,7 +98,7 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         self.has_macroapi=False
         self.results_opened = False
         self.plot_h5=False
-        self.set_h5_flags=[False,False,False]
+        self.set_h5_flags=[False,False,False,False]
         self.macroapi_keys=None
         self.ninc=None
         self.elem_to_deck=None
@@ -281,6 +281,8 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
             self.res_comp_cb.blockSignals(True) #do not block mode, other values need to be set...
             self._update_hierarchy(update_res=False)
             self._update_hierarchy(update_res=True)
+            if ind==self.mode_cb.currentIndex():
+                self.mode_cb.setCurrentIndex(0)
             self.mode_cb.setCurrentIndex(ind)
             self.actionAttach_h5_file.setEnabled(False)
 
@@ -555,7 +557,7 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
             update_res=True
 
         self.plot_h5=False
-        self.set_h5_flags=[False,False,False]#mode,item,comp
+        self.set_h5_flags=[False,False,False,False]#mode,item,comp,rot
 
         if nasmat[filestr]['input']['0']['ruc']['nrucs'] > 0:
             self._update_hierarchy(update_res=update_res)
@@ -1196,6 +1198,8 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         npp=NASMATPrePost()
         tabindex=self.tabWidget.currentIndex()
         if tabindex==0:
+            self.set_h5_flags=[False,False,False,False]#mode,item,comp,rot
+            self.plot_h5 = False
             self.actionSave_Video.setEnabled(False)
             self.selected_tree=self.treeWidget
             ind=self.mode_cb.findText('Materials')
@@ -1465,12 +1469,14 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         self.speed_slider.setEnabled(False)
         self.inc_text.setEnabled(False)
 
-        # self.res_item_cb.clear()
+        self.res_item_cb.blockSignals(True)
+        self.res_item_cb.clear()
+        self.res_item_cb.blockSignals(False)
         self.res_comp_cb.clear()
         #Note: since a triggered signal is used for each of the result
         #      comboboxes, only one vtk update should be called once
         #      the four comboboxes are set.
-        self.set_h5_flags=[False,False,False,False]#mode,item,comp,mode
+        self.set_h5_flags=[False,False,False,False]#mode,item,comp,rot
         if selected == 'H5 Arrays':
             self.res_item_cb.setEnabled(True)
             npp=NASMATPrePost()
@@ -1508,7 +1514,7 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
             self.set_h5_flags=[True,True,True,True]
             self.update_h5_plot()
         else:
-            self.plot_ruc()
+            self.plot_ruc(force_update=True)
 
         if selected=='H5 Arrays':
             incstr='1'
