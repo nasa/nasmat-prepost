@@ -15,9 +15,8 @@ from PyQt5.QtCore import QTimer,pyqtSlot # pylint: disable=E0611
 from PyQt5.QtGui import QColor,QTextCursor,QTextCharFormat # pylint: disable=E0611
 from PyQt5.uic import loadUi
 
-from vtkmodules.vtkFiltersHybrid import vtkRenderLargeImage # pylint: disable=E0611
 from vtkmodules.vtkIOImage import vtkPNGWriter # pylint: disable=E0611
-from vtkmodules.vtkRenderingCore import vtkTextActor # pylint: disable=E0611
+from vtkmodules.vtkRenderingCore import (vtkTextActor,vtkWindowToImageFilter) # pylint: disable=E0611
 
 from NASMAT_PrePost import NASMATPrePost
 from mac_inp import mac_inp
@@ -397,16 +396,28 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
                     actors[actor2d]=base_size #store for updating later
                     actor2d.GetTextProperty().SetFontSize(int(base_size*ssd.mag))
 
-            lrgimg = vtkRenderLargeImage()
-            lrgimg.SetInput(renderer)
-            lrgimg.SetMagnification(ssd.mag)
+            rw.OffScreenRenderingOn()
+            rw.SetAlphaBitPlanes(1)
+            renderer.SetBackgroundAlpha(1.0)
+            rw.Render()
+
+            wimg = vtkWindowToImageFilter()
+            wimg.SetInput(rw)
+            wimg.SetScale(ssd.mag)
+            wimg.SetInputBufferTypeToRGBA()
+            wimg.ReadFrontBufferOff()
+            wimg.Update()
+
             img_writer = vtkPNGWriter()
             img_writer.SetFileName(ssd.filename)
-            img_writer.SetInputConnection(lrgimg.GetOutputPort())
+            img_writer.SetInputConnection(wimg.GetOutputPort())
             img_writer.Write()
 
             for actor2d,base_size in actors.items():
                 actor2d.GetTextProperty().SetFontSize(int(base_size))
+            rw.Render()
+            rw.OffScreenRenderingOff()
+
             print(f"screenshot saved to: {ssd.filename}")
 
 
