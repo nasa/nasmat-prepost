@@ -10,13 +10,13 @@ import numpy as np
 
 from PyQt5.QtWidgets import (QApplication,QMessageBox, # pylint: disable=E0611
                             QMainWindow,QWidget,QTreeWidgetItem,
-                            QInputDialog,QLineEdit,QHeaderView)
+                            QInputDialog,QHeaderView)
 from PyQt5.QtCore import QTimer,pyqtSlot # pylint: disable=E0611
 from PyQt5.QtGui import QColor,QTextCursor,QTextCharFormat # pylint: disable=E0611
 from PyQt5.uic import loadUi
 
-from vtkmodules.vtkRenderingCore import vtkWindowToImageFilter # pylint: disable=E0611
 from vtkmodules.vtkIOImage import vtkPNGWriter # pylint: disable=E0611
+from vtkmodules.vtkRenderingCore import (vtkTextActor,vtkWindowToImageFilter) # pylint: disable=E0611
 
 from NASMAT_PrePost import NASMATPrePost
 from mac_inp import mac_inp
@@ -28,6 +28,7 @@ from color_Dialog import color_Dialog
 from show_md import ShowMd
 from hideshowmat_Dialog import HideShowMatDialog
 from Edit_text_dialog import Edit_text_dialog
+from screenshot_Dialog import ScreenshotDialog
 from geth5 import GetH5
 from util.npp_settings import get_npp_settings,write_npp_settings
 from util.get_default_vtk_settings import get_default_vtk_settings
@@ -52,7 +53,7 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         super().__init__()
         loadUi("ui/NASMAT_PrePost.ui", self)
 
-        self.version = 'NASMAT PrePost v1.1'
+        self.version = 'NASMAT PrePost v1.2'
         self.setWindowTitle(self.version)
 
         sys.excepthook = qt_excepthook
@@ -97,7 +98,7 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         self.has_macroapi=False
         self.results_opened = False
         self.plot_h5=False
-        self.set_h5_flags=[False,False,False]
+        self.set_h5_flags=[False,False,False,False]
         self.macroapi_keys=None
         self.ninc=None
         self.elem_to_deck=None
@@ -110,6 +111,7 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         self.timer.timeout.connect(self.plot_h5_play_inc)
         self.inc_mode = 1 #1 for increasing, -1 for decreasing
         self.update_fields = False
+        self.read_from_h5 = False
 
     def closeEvent(self,event): #pylint: disable=C0103
         """
@@ -262,7 +264,9 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         filename = filedialog.askopenfilename(title="Select a NASMAT *.h5 output file...",
                                               filetypes=[("NASMAT H5 files","*.h5"),])
         if filename:
+            self.read_from_h5 = True
             self._init_npp(filename=filename,read_from_h5=True)
+            self.actionClose_H5_File.setEnabled(True)
             self.mode_cb.setEnabled(True)
             self.treeWidget_Res.blockSignals(True)
             self.treeWidget_Res.clearSelection()
@@ -277,6 +281,8 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
             self.res_comp_cb.blockSignals(True) #do not block mode, other values need to be set...
             self._update_hierarchy(update_res=False)
             self._update_hierarchy(update_res=True)
+            if ind==self.mode_cb.currentIndex():
+                self.mode_cb.setCurrentIndex(0)
             self.mode_cb.setCurrentIndex(ind)
             self.actionAttach_h5_file.setEnabled(False)
 
@@ -370,11 +376,9 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         ci=npp.get('selected')
 
         vtk_widget=self.findChild(QWidget, "vtk_widget")
+        rw = vtk_widget.render_window
+        renderer = rw.GetRenderers().GetFirstRenderer()
 
-        img_filter = vtkWindowToImageFilter()
-        img_filter.SetInput(vtk_widget.render_window)
-        img_filter.Update()
-        img_writer = vtkPNGWriter()
         if vs[id(ci)]['show_res']:
             var=vs[id(ci)]['var']
             comp=vs[id(ci)]['comp']
@@ -382,17 +386,42 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         else:
             default_text=filename[:-4]+'-plot-mats.png'
 
-        text, valid = QInputDialog.getText(self, 'Updating Variable Plot Range',
-                                           'Define the output file name:',
-                                           QLineEdit.Normal, default_text)
+        ssd = ScreenshotDialog(filename=default_text,wsize=rw.GetSize())
+        status=ssd.exec()
+        if status:
+            actors={}
+            #update font size for text actors to account for magnification change
+            for i in range(renderer.GetActors2D().GetNumberOfItems()):
+                actor2d = renderer.GetActors2D().GetItemAsObject(i)
+                if isinstance(actor2d, vtkTextActor):
+                    base_size = actor2d.GetTextProperty().GetFontSize()
+                    actors[actor2d]=base_size #store for updating later
+                    actor2d.GetTextProperty().SetFontSize(int(base_size*ssd.mag))
 
-        if text and valid:
-            img_writer.SetFileName(text)
-            img_writer.SetInputConnection(img_filter.GetOutputPort())
+            rw.OffScreenRenderingOn()
+            rw.SetAlphaBitPlanes(1)
+            renderer.SetBackgroundAlpha(1.0)
+            rw.Render()
+
+            wimg = vtkWindowToImageFilter()
+            wimg.SetInput(rw)
+            wimg.SetScale(ssd.mag)
+            wimg.SetInputBufferTypeToRGBA()
+            wimg.ReadFrontBufferOff()
+            wimg.Update()
+
+            img_writer = vtkPNGWriter()
+            img_writer.SetFileName(ssd.filename)
+            img_writer.SetInputConnection(wimg.GetOutputPort())
             img_writer.Write()
-            print(f"screenshot saved to: {text}")
 
-        npp.set('vtk_settings',vs)
+            for actor2d,base_size in actors.items():
+                actor2d.GetTextProperty().SetFontSize(int(base_size))
+            rw.Render()
+            rw.OffScreenRenderingOff()
+
+            print(f"screenshot saved to: {ssd.filename}")
+
 
     def save_video(self):
         """
@@ -528,7 +557,7 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
             update_res=True
 
         self.plot_h5=False
-        self.set_h5_flags=[False,False,False]#mode,item,comp
+        self.set_h5_flags=[False,False,False,False]#mode,item,comp,rot
 
         if nasmat[filestr]['input']['0']['ruc']['nrucs'] > 0:
             self._update_hierarchy(update_res=update_res)
@@ -583,6 +612,48 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         nasmat[filestr]['input']={}
         nasmat[filestr]['input']['0'] = mi.mac #deck hard-wired to be 0 only
         npp.set('nasmat',nasmat)
+
+    def close_h5(self):
+        """
+        Callback function for closing an open h5 file.
+
+        Parameters:
+            None.
+
+        Returns:
+            None.
+        """
+
+        npp=NASMATPrePost()
+        nasmat = npp.get('nasmat')
+        filestr = npp.get('cur_file')
+        nasmat[filestr]['input']['h5'].file.close()
+        print(f"Closing open H5 file...\n   {nasmat[filestr]['input']['h5'].h5name}")
+        nasmat[filestr]['input'].pop('h5')
+        nasmat[filestr]['ruc_plot']=''
+        self.results_opened = False
+        self.plot_h5 = False
+
+        self.treeWidget_Res.blockSignals(True)
+        self.treeWidget_Res.clear()
+
+        vtk_widget=self.findChild(QWidget, "vtk_widget")
+        rw = vtk_widget.render_window
+        renderer = rw.GetRenderers().GetFirstRenderer()
+        renderer.RemoveAllViewProps()
+        rw.Render()
+
+        self.treeWidget_Res.setEnabled(False)
+        self.treeWidget_Res.blockSignals(False)
+
+        self.treeWidget.blockSignals(True)
+        self.selected_tree=self.treeWidget
+        if self.read_from_h5:
+            self.treeWidget.clear()
+        self.treeWidget.blockSignals(False)
+
+        npp.set('selected',None)
+        self.actionClose_H5_File.setEnabled(False)
 
     def displayed_materials(self):
         """
@@ -1127,6 +1198,8 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         npp=NASMATPrePost()
         tabindex=self.tabWidget.currentIndex()
         if tabindex==0:
+            self.set_h5_flags=[False,False,False,False]#mode,item,comp,rot
+            self.plot_h5 = False
             self.actionSave_Video.setEnabled(False)
             self.selected_tree=self.treeWidget
             ind=self.mode_cb.findText('Materials')
@@ -1144,7 +1217,11 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
             self.res_comp_cb.setCurrentIndex(comp_ind)
             self.res_mode_cb.setCurrentIndex(mode_ind)
 
-        self.selected_tree.setCurrentItem(npp.get('selected'))
+        selected=npp.get('selected')
+        try:
+            self.selected_tree.setCurrentItem(selected)
+        except RuntimeError:
+            self.selected_tree.setCurrentItem(None)
 
     def select_solver(self):
         """
@@ -1329,6 +1406,7 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
             nasmat[macfile]['input']['0']['rucid']=mac_tmp['rucid']
             npp.set('nasmat',nasmat)
             self.results_opened = True
+            self.actionClose_H5_File.setEnabled(True)
             self.mode_cb.setEnabled(True)
             self.ninc=inp['h5'].ninc
             self._update_hierarchy(update_res=True)
@@ -1391,12 +1469,14 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         self.speed_slider.setEnabled(False)
         self.inc_text.setEnabled(False)
 
-        # self.res_item_cb.clear()
+        self.res_item_cb.blockSignals(True)
+        self.res_item_cb.clear()
+        self.res_item_cb.blockSignals(False)
         self.res_comp_cb.clear()
         #Note: since a triggered signal is used for each of the result
         #      comboboxes, only one vtk update should be called once
         #      the four comboboxes are set.
-        self.set_h5_flags=[False,False,False,False]#mode,item,comp,mode
+        self.set_h5_flags=[False,False,False,False]#mode,item,comp,rot
         if selected == 'H5 Arrays':
             self.res_item_cb.setEnabled(True)
             npp=NASMATPrePost()
@@ -1434,7 +1514,9 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
             self.set_h5_flags=[True,True,True,True]
             self.update_h5_plot()
         else:
-            self.plot_ruc()
+            self.plot_h5=False
+            self.set_h5_flags=[False,False,False,False]
+            self.plot_ruc(force_update=True)
 
         if selected=='H5 Arrays':
             incstr='1'
@@ -1461,7 +1543,9 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         """
 
         if self.mode_cb.currentText()!='H5 Arrays':
-            self.plot_ruc()
+            self.plot_h5=False
+            self.set_h5_flags=[False,False,False,False]
+            self.plot_ruc(force_update=True)
             return
 
         var=self.res_item_cb.currentText()
@@ -1520,11 +1604,12 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         npp=NASMATPrePost()
         nasmat = npp.get('nasmat')
         macfile = npp.get('cur_file')
-        h5=nasmat[macfile]['input']['h5']
-        var=self.res_item_cb.currentText()
-        items=h5.get_components(var)
-        self.res_comp_cb.addItems(items)
-        self.res_comp_cb.setCurrentIndex(0)
+        if 'h5' in nasmat[macfile]['input']:
+            h5=nasmat[macfile]['input']['h5']
+            var=self.res_item_cb.currentText()
+            items=h5.get_components(var)
+            self.res_comp_cb.addItems(items)
+            self.res_comp_cb.setCurrentIndex(0)
 
 
     def plot_h5_goto_firstinc(self):
@@ -1667,6 +1752,10 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         npp=NASMATPrePost()
         vs=npp.get('vtk_settings')
         ci=npp.get('selected')
+
+        if id(ci) not in vs:
+            return
+
         if iopt==0: #set to first increment
             if vs[id(ci)]['ind']!=0:
                 vs[id(ci)]['ind']=0
@@ -1809,7 +1898,11 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         ci=self.selected_tree.currentItem()
         if not ci:
             ci=self.selected_tree.topLevelItem(0)
-        selected=ci.text(0)
+
+        if ci:
+            selected=ci.text(0)
+        else:
+            selected=None
 
         return selected,loc,ci
 
@@ -1832,6 +1925,9 @@ class Main(QMainWindow): #pylint: disable=R0902,R0904
         npps=npp.get('npp_settings')
 
         selected,_,ci=self.get_selected()
+        if not selected:
+            npp.set('selected',None)
+            return
         npp.set('selected',ci)
 
         if old_selected==ci:
