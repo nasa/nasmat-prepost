@@ -81,7 +81,7 @@ class mac_out(): #pylint: disable=C0103,R0903
                 if not res:
                     ind = string.rfind(' ', 0, cutoff + 1)
 
-                if ind!=0:
+                if ind>0:
                     f.write(string[:ind+1]+'&\n ')
                     string=string[ind+1:]
                 else:
